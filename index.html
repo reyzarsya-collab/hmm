@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hii Zaskia my girl</title>
+    <style>
+        body {
+            background-color: #F8F0E3;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .slider-container {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 40px;
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            box-sizing: border-box;
+            position: relative;
+            min-height: 400px; /* Menjaga tinggi agar tidak berubah */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 1.5s ease-in-out;
+            padding: 20px 0;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            color: #8B0000;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #444;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+        
+        .nav-buttons {
+            margin-top: 25px;
+        }
+
+        .nav-buttons button {
+            background-color: #8B0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin: 0 10px;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #A52A2A;
+        }
+
+        .signature {
+            font-style: italic;
+            margin-top: 25px;
+            color: #555;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slide active" id="slide1">
+            <h1>Hii Zaskia my girl</h1>
+            <p>Selamat datang di sebuah halaman kecil yang aku buat khusus untukmu. Setiap kata di sini adalah bisikan dari hatiku, untuk memberitahumu betapa berharganya dirimu bagiku.</p>
+        </div>
+
+        <div class="slide" id="slide2">
+            <h2>Tentang Senyummu</h2>
+            <p>Senyummu, Zaskia, adalah alasan mengapa hari-hariku terasa lebih cerah. Ia seperti matahari yang muncul setelah badai, membawa kehangatan dan harapan. Melihatmu tersenyum adalah momen favoritku, karena di situlah aku tahu bahwa kebahagiaan sejati itu ada.</p>
+        </div>
+
+        <div class="slide" id="slide3">
+            <h2>Momen Kita</h2>
+            <p>Setiap momen yang kita lalui, baik itu yang sederhana maupun yang luar biasa, selalu punya tempat istimewa di hatiku. Setiap tawa, setiap percakapan, bahkan keheningan di antara kita, semuanya adalah bagian dari cerita cinta kita yang indah.</p>
+        </div>
+        
+        <div class="slide" id="slide4">
+            <h2>Aku Bersyukur</h2>
+            <p>Aku tidak pernah tahu bahwa seseorang bisa merasa seutuhnya seperti ini. Aku bersyukur atas kehadiranmu, yang membuat hidupku terasa lebih lengkap dan penuh warna. Terima kasih telah hadir dan menjadi bagian dari setiap langkahku.</p>
+        </div>
+        
+        <div class="slide" id="slide5">
+            <h2>Janjiku Untukmu</h2>
+            <p>Mungkin aku bukan yang terbaik, tapi janjiku adalah untuk selalu berusaha menjadi yang terbaik untukmu. Aku akan selalu ada untukmu, dalam suka dan duka. Bahagiaku adalah melihatmu bahagia.</p>
+        </div>
+
+        <div class="slide" id="final-slide">
+            <h2>Kamu Luar Biasa!</h2>
+            <p>Aku harap kamu selalu ingat betapa berharga dan luar biasanya dirimu. Apapun yang terjadi, jangan pernah ragu akan dirimu sendiri. Teruslah bersinar, karena cahaya darimu itulah yang membuatku jatuh cinta setiap hari.</p>
+            <p class="signature">With all my heart,<br>Reyzaa</p>
+        </div>
+        
+        <div class="nav-buttons">
+            <button onclick="prevSlide()">Sebelumnya</button>
+            <button onclick="nextSlide()">Lanjut</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlideIndex++;
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = 0;
+            }
+            showSlide(currentSlideIndex);
+        }
+
+        function prevSlide() {
+            currentSlideIndex--;
+            if (currentSlideIndex < 0) {
+                currentSlideIndex = slides.length - 1;
+            }
+            showSlide(currentSlideIndex);
+        }
+
+        // Tampilkan slide pertama saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentSlideIndex);
+        });
+    </script>
+</body>
+</html>
